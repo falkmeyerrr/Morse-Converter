@@ -3,7 +3,6 @@
 
 #define ALPHABET_SIZE 26
 
-
 int main() {
     char messagein[100];
     const char *morse_code[ALPHABET_SIZE] = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..",
