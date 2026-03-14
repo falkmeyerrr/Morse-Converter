@@ -3,9 +3,17 @@
 
 #define ALPHABET_SIZE 26
 
+void clear_input() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+
 int main() {
     char messagein[100];
     const char *morse_code[ALPHABET_SIZE] = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..",
+                              ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.",
+                              "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
+    const char *morse_code_american[ALPHABET_SIZE] = {".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..",
                               ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.",
                               "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."};
     printf("What is the message you want to encode?\n");
@@ -41,18 +49,8 @@ int main() {
     }
     printf("\n");
 
-    // Just for exe click
-    char exit[2], comand = 'e';
-    int flag = 0;
-    while (exit) {
-        if (flag == 1) {
-            printf("\r\e[31m>>> Input error\e[0m\n");
-        }
-        if (!fgets(exit, sizeof(exit), stdin) != 70) {
-            exit[strcspn(exit, "\n")] = 0;
-        } else {break;}
-    }
-
+    printf("Press \"Enter\" to exit: ");
+    clear_input();
 
     return 0;
 }
